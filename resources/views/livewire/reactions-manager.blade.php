@@ -246,7 +246,7 @@
     </div>
 
     @if ($enableReply)
-        <div x-show="showReplyForm" x-transition class="my-4 sm:ml-8">
+        <div x-show="showReplyForm" x-transition class="my-4 sm:ms-8">
             <livewire:comments-reply-form :$comment :$guestMode :$relatedModel />
         </div>
     @endif
@@ -316,7 +316,7 @@
                     @if ($selectedReactionType)
                         <div class="mt-4 flex w-full flex-col items-start px-4">
                             @foreach ($this->getReactedUsers($selectedReactionType) as $user)
-                                <div class="flex w-full items-center space-x-4 border-b border-gray-200 p-2">
+                                <div class="flex w-full items-center space-x-4 rtl:space-x-reverse border-b border-gray-200 p-2">
                                     <div>
                                         <img
                                             class="h-[1.8rem] w-[1.8rem] rounded-full border border-gray-200"

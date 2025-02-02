@@ -41,7 +41,7 @@
         >
             <div
                 @class([
-                    "flex items-start justify-between space-x-4 p-1 sm:flex-row sm:items-center sm:justify-between",
+                    "flex items-start justify-between space-x-4 rtl:space-x-reverse p-1 sm:flex-row sm:items-center sm:justify-between",
                     "mb-2 border-b border-gray-200 bg-gray-100 bg-gray-100 dark:bg-slate-800 dark:border-slate-900" => Helpers::isGithubTheme(),
                 ])
             >
@@ -66,15 +66,15 @@
                     </div>
 
                     <div>
-                        <span class="font-semibold sm:hidden mr-1">
+                        <span class="font-semibold sm:hidden me-1">
                             {{ Str::limit($reply->ownerName($authMode), 10) }}
                         </span>
 
-                        <span class="hidden font-semibold sm:inline mr-1">
+                        <span class="hidden font-semibold sm:inline me-1">
                         {{ Str::limit($reply->ownerName($authMode), 25) }}
                         </span>
 
-                        <span class="inline-block h-2 w-[1px] bg-black mr-1"></span>
+                        <span class="inline-block h-2 w-[1px] bg-black me-1"></span>
 
                         @if (config('comments.date_format') === 'diff')
                             <span class="text-xs">{{ $reply->created_at->diffForHumans() }}</span>
@@ -94,7 +94,7 @@
 
 
                 @if ($canManipulate)
-                    <div class="flex items-center justify-center space-x-2">
+                    <div class="flex items-center justify-center space-x-2 rtl:space-x-reverse">
                         <div title="My Reply">
                             <x-comments::user-check height="14" width="14"/>
                         </div>
@@ -115,7 +115,7 @@
                                 x-show="showEditMenu"
                                 @click.outside="showEditMenu=false"
                                 x-transition
-                                class="absolute bottom-[1rem] right-[0.8rem] z-10 min-w-32 space-y-1 rounded border border-[gray-100] bg-white dark:border-slate-900 dark:bg-slate-800 p-1 shadow-lg"
+                                class="absolute bottom-[1rem] end-[0.8rem] z-10 min-w-32 space-y-1 rounded border border-[gray-100] bg-white dark:border-slate-900 dark:bg-slate-800 p-1 shadow-lg"
                             >
                                 @if ($this->canUpdateReply($reply))
                                     <li
@@ -124,7 +124,7 @@
                                          showEditMenu=false
                                          $dispatch('show-reply-update-form-@js($reply->getKey())', {show: showUpdateForm})
                                          "
-                                        class="flex items-center space-x-2 rounded p-2 hover:!bg-gray-200 dark:hover:!bg-slate-900"
+                                        class="flex items-center space-x-2 rtl:space-x-reverse rounded p-2 hover:!bg-gray-200 dark:hover:!bg-slate-900"
                                     >
                                         <x-comments::pencil height="13" width="13" strokeColor="blue"/>
                                         <x-comments::action class="text-sm hover:!no-underline sm:text-sm">
@@ -138,7 +138,7 @@
                                         wire:click="delete({{ $reply }})"
                                         wire:confirm="{{ __('Are you sure you want to delete this reply?') }}"
                                         @click="showEditMenu=false"
-                                        class="flex items-center items-center space-x-2 space-x-2 rounded p-2 hover:!bg-gray-200 dark:hover:!bg-slate-900"
+                                        class="flex items-center space-x-2 rtl:space-x-reverse rounded p-2 hover:!bg-gray-200 dark:hover:!bg-slate-900"
                                     >
                                         <x-comments::trash height="13" width="13" strokeColor="red"/>
                                         <x-comments::action

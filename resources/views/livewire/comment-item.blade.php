@@ -4,7 +4,7 @@
     x-ref="comment{{ $comment->getKey() }}"
     x-data="{ showReplyList: @js($showReplyList), replyCount: @js($comment->replies_count) }"
     @class([
-        "flex gap-x-2 sm:gap-x-4 pb-2 dark:!bg-black dark:!text-white",
+        "flex gap-x-2 sm:gap-x-4 pb-2 dark:!bg-gray-900 dark:!text-white",
         "border rounded-lg p-4" => Helpers::isModernTheme(),
     ])
     @style([
@@ -198,12 +198,12 @@
                     {!! $comment->text !!}
                 </div>
 
-                <div
+                <!-- <div
                     class="flex bg-gray-200 my-4 justify-center items-center h-[1px] max-w-[10%] mx-auto bg-gradient-to-r from-transparent via-gray-100 to-transparent">
-                </div>
+                </div> -->
 
                 <!--Reaction manager -->
-                <div x-show="!showUpdateForm" @class(['px-2' => Helpers::isGithubTheme()])>
+                <div x-show="!showUpdateForm" class="mt-2" @class(['px-2' => Helpers::isGithubTheme()])>
                     <livewire:comments-reactions-manager
                         :key="'reaction-manager-' . $comment->id"
                         :$comment
@@ -297,7 +297,7 @@
             ])
         >
             <div
-                class="flex bg-gray-200 mb-6 justify-center items-center h-[1px] max-w-[100%] mx-auto bg-gradient-to-r from-transparent via-gray-100 to-transparent">
+                class="flex bg-gray-200 dark:bg-transparent mb-6 justify-center items-center h-[1px] max-w-[100%] mx-auto bg-gradient-to-r from-transparent via-gray-100 to-transparent">
             </div>
 
             <livewire:comments-reply-list

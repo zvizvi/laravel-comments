@@ -178,9 +178,9 @@
                 {!! $reply->text !!}
             </div>
 
-            <div
+            <!-- <div
                 class="flex bg-gray-200 my-4 justify-center items-center h-[1px] max-w-[10%] mx-auto bg-gradient-to-r from-transparent via-gray-100 to-transparent">
-            </div>
+            </div> -->
 
             <!--Reaction manager -->
             <div x-show="!showUpdateForm" class="mt-2">

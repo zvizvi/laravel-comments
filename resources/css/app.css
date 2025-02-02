@@ -44,3 +44,39 @@
 [wire\:loading\.delay\.none][wire\:loading\.delay\.none], [wire\:loading\.delay\.shortest][wire\:loading\.delay\.shortest], [wire\:loading\.delay\.shorter][wire\:loading\.delay\.shorter], [wire\:loading\.delay\.short][wire\:loading\.delay\.short], [wire\:loading\.delay\.default][wire\:loading\.delay\.default], [wire\:loading\.delay\.long][wire\:loading\.delay\.long], [wire\:loading\.delay\.longer][wire\:loading\.delay\.longer], [wire\:loading\.delay\.longest][wire\:loading\.delay\.longest] {
     display: none;
 }
+
+.ql-toolbar.ql-snow .ql-picker-label {
+    direction: ltr;
+}
+
+.ql-toolbar.ql-snow .ql-formats {
+    margin-right: unset;
+    margin-inline-end: 15px;
+}
+
+.ql-editor {
+    text-align: start;
+}
+
+.ql-editor.ql-blank:before {
+    right: unset;
+    left: unset;
+    inset-inline-start: 15px;
+}
+
+.ql-editor.ql-blank:is(.dark *):before,.ql-snow .ql-picker:is(.dark *) {
+    color: rgb(228, 228, 231);
+}
+
+.ql-snow .ql-stroke:is(.dark *) {
+    stroke: rgb(228, 228, 231);
+}
+
+.ql-toolbar.ql-snow + .ql-container {
+    display: grid;
+}
+
+/* Fix double toolbar bug */
+.ql-toolbar.ql-snow:has(+ .ql-toolbar.ql-snow) {
+    display: none;
+}

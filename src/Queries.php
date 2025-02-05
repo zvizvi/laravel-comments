@@ -242,7 +242,7 @@ class Queries extends AbstractQueries
                  */
                 function (User $user) {
                     // @phpstan-ignore-next-line
-                    return new UserData(name: $user->name(), photo: $user->photoUrl(), id: $user->id);
+                    return new UserData(name: $user->name(), photo: $user->photoUrl());
                 }
             );
     }

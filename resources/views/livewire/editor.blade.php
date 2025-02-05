@@ -70,18 +70,12 @@
         };
 
         const onMentionedUserSelected = (e, quill, editorElm) => {
-            const user = e.detail.user;
+            const span = document.createElement('strong');
+            const textnode = document.createTextNode(e.detail.name + ' ');
             const lastChild = editorElm.lastChild;
-            const link = document.createElement('a');
-            const textnode = document.createTextNode(user?.name);
-            link.appendChild(textnode);
-            link.href = `/users/${user?.id}`;
-            link.dataset.userId = user?.id;
-            const strongElm = document.createElement('strong');
-            strongElm.appendChild(link);
-            lastChild.append(strongElm);
-            const textNode = document.createTextNode(' ');
-            lastChild.append(textNode);
+            span.appendChild(textnode);
+
+            lastChild.append(span);
 
             quill.update();
 

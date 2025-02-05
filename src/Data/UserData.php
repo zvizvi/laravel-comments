@@ -10,6 +10,7 @@ final class UserData implements Wireable
         public ?string $name,
         public ?string $email = null,
         public ?string $photo = null,
+        public ?string $id = null,
     ) {
     }
 
@@ -19,6 +20,7 @@ final class UserData implements Wireable
             'name' => $this->name,
             'email' => $this->email,
             'photo' => $this->photo,
+            'id' => $this->id,
         ];
     }
 
@@ -27,7 +29,8 @@ final class UserData implements Wireable
         $name = $value['name'];
         $email = $value['email'];
         $photo = $value['photo'];
+        $id = $value['id'];
 
-        return new UserData($name, $email, $photo);
+        return new UserData($name, $email, $photo, $id);
     }
 }

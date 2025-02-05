@@ -92,10 +92,10 @@ class UserList extends Component
         }
     }
 
-    public function userSelected(string $name): void
+    public function userSelected(array $user): void
     {
         $this->close();
-        $this->dispatch('user-selected-' . $this->editorId, name: $name, editorId: $this->editorId);
+        $this->dispatch('user-selected-' . $this->editorId, user: $user, editorId: $this->editorId);
     }
 
     public function render(): View|Factory|Application
